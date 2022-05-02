@@ -1,17 +1,14 @@
-# Composante - Form
+# Travail pratique #3 - Recettes en pot
 
-Introduction de la composantes Form. Form nous permet une validation personnalisée d'un formulaire en utilisant la validation native HTML5.
-<br><br>
+Voici le dossier de base pour la réalisation du travail pratique #3.
+Les gabarits _header.html et _footer.html se trouvant dans le dossier _partials sont utilisés.
 
-## **Consigne de l'exercice**
+## Informations
 
-Lien youtube Form: https://www.youtube.com/watch?v=704rVZ5-crg
+Toutes les informations en lien avec le TP sont disponible sur le Classroom.
 
-<br><br>
 
-# Stack de développement frontend TimTools
 
-C'est quoi un stack de développement frontend? C'est un ensemble d'outil qui permet d'automatiser certaines tâches redondantes et plus complexe afin de d'accélérer et d'optmiser le développement d'un site web ou une application.
-
-<hr><br>
-Préparé par : Jean-François Leblanc et Matthieu Parent _timtools v1.22.0_
+<br><br><br><hr>
+Préparé par : Matthieu Parent et Jean-François Leblanc  
+_timtools v1.22.1_
