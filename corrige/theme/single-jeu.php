@@ -2,7 +2,7 @@
     
     <div class="hero hero--compact">
         <div class="hero__media">
-        <?php the_post_thumbnail('full'); ?>
+        <?php the_post_thumbnail('full', array('data-scrolly' => 'scaleDown')); ?>
         </div>
         <div class="hero__content">
             <div class="wrapper">
@@ -13,7 +13,7 @@
 
     <section class="section">
         <div class="wrapper game">
-            <div class="game__content">
+            <div class="game__content" data-scrolly="fromBottom">
                 <?php the_content(); ?>
             </div>
             
@@ -23,14 +23,14 @@
 
                     if ($realisateurs) :
                 ?>
-                    <h4>Réalisateur</h4>
+                    <h4 data-scrolly="fromBottom">Réalisateur</h4>
                     <?php foreach( $realisateurs as $realisateur ): ?>
                         <p><?php echo get_the_title($realisateur->ID); ?></p>
                     <?php endforeach; ?>
                 <?php endif ?>
 
                 <?php if (get_field('pw_release_date')): ?>
-                    <h4>Date de sortie</h4>
+                    <h4 data-scrolly="fromBottom">Date de sortie</h4>
                     <p><?php the_field('pw_release_date'); ?></p>
                 <?php endif; ?>
 
@@ -39,12 +39,12 @@
                     <?php array_push($categories, $category->name); ?>
                     <?php endforeach ?>
                 <?php if ($categories): ?>
-                    <h4>Genre</h4>
+                    <h4 data-scrolly="fromBottom">Genre</h4>
                     <p><?php echo implode(', ', $categories); ?></p>
                 <?php endif; ?>
 
                 <?php if (get_field('pw_release_date')): ?>
-                    <h4>Classement</h4>
+                    <h4 data-scrolly="fromBottom">Classement</h4>
                     <p><?php the_field('pw_rating'); ?>⭐️</p>
                 <?php endif; ?>
             </div>
@@ -59,7 +59,9 @@
             <div class="gallery">
                 <?php if ( have_rows('pw_gallery') ): ?>
                     <?php while( have_rows('pw_gallery') ): the_row(); ?>
-                        <div class="gallery__card">
+                        <div class="gallery__card"
+                            data-scrolly="fromBottom" 
+                            style="transition-delay: <?php echo get_row_index() * .1; ?>s">
                             <div class="gallery__media">
                                 <?php $image = get_sub_field('photo'); ?>
                                     <?php if ($image) : ?>

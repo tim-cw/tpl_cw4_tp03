@@ -5,18 +5,20 @@
     
     <div class="hero hero--compact">
         <div class="hero__media">
-        <?php the_post_thumbnail('full'); ?>
+        <?php the_post_thumbnail('full', array('data-scrolly' => 'scaleDown')); ?>
         </div>
         <div class="hero__content">
             <div class="wrapper">
-                <h1><?php the_title(); ?></h1>
+                <h1 data-scrolly="fromBottom"><?php the_title(); ?></h1>
             </div>
         </div>
     </div>
 
     <section class="section">
         <div class="wrapper">
-            <?php the_content(); ?>
+            <div data-scrolly="fromBottom">
+                <?php the_content(); ?>
+            </div>
         
             <!-- Cards -->
             <div class="cards">
@@ -35,7 +37,9 @@
 
                 <?php if ($query->have_posts()) : ?>
                     <?php while ($query->have_posts()) : $query->the_post(); ?>
-                        <a href="<?php the_permalink(); ?>" class="card">
+                        <a href="<?php the_permalink(); ?>" class="card"
+                            data-scrolly="fromBottom" 
+                            style="transition-delay: <?php echo $query->current_post * .1; ?>s">
                             <div class="card__media">
                                 <?php $image = get_field('pw_thumbnail'); ?>
                                 <?php if ($image) : ?>

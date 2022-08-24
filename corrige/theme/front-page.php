@@ -2,11 +2,11 @@
     
     <div class="hero">
         <div class="hero__media">
-        <?php the_post_thumbnail('full'); ?>
+        <?php the_post_thumbnail('full', array('data-scrolly' => 'scaleDown')); ?>
         </div>
         <div class="hero__content">
             <div class="wrapper">
-                <h1 data-scrolly="fromRight"><?php the_title(); ?></h1>
+                <h1 data-scrolly="fromBottom"><?php the_title(); ?></h1>
                 <a  data-scrolly="fromBottom" href="<?php get_permalink( get_page_by_path( 'jeux' ) ) ?>" class="btn">Voir nos jeux</a>
             </div>
         </div>
@@ -14,7 +14,9 @@
 
     <section class="section">
         <div class="wrapper">
-            <?php the_content(); ?>
+            <div data-scrolly="fromBottom">
+                <?php the_content(); ?>
+            </div>
         
             <!-- Cards -->
             <div class="cards">
@@ -34,7 +36,9 @@
 
                 <?php if ($query->have_posts()) : ?>
                     <?php while ($query->have_posts()) : $query->the_post(); ?>
-                        <a href="<?php the_permalink(); ?>" class="card">
+                        <a href="<?php the_permalink(); ?>" class="card" 
+                            data-scrolly="fromBottom" 
+                            style="transition-delay: <?php echo $query->current_post * .1; ?>s">
                             <div class="card__media">
                                 <?php $image = get_field('pw_thumbnail'); ?>
                                 <?php if ($image) : ?>
@@ -58,7 +62,9 @@
             <ul class="perks">
                 <?php if ( have_rows('pw_perks') ): ?>
                     <?php while( have_rows('pw_perks') ): the_row(); ?>
-                        <li class="perk">
+                        <li class="perk"
+                            data-scrolly="fromBottom" 
+                            style="transition-delay: <?php echo get_row_index() * .1; ?>s">
                             <span><?php echo get_row_index(); ?></span>
                             <p><?php the_sub_field('perk'); ?></p>
                         </li>

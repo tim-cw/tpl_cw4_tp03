@@ -36,6 +36,15 @@
         }
     }
 
+    [data-scrolly='scaleDown'] {
+        transform: scale(1.1);
+        transition: all 1s ease-out;
+
+        &.is-active {
+            transform: scale(1);
+        }
+    }
+
     // À titre d'exemple seulement, demande un peu plus de
     // planification car il faut mettre perspective + transform-style
     // sur le parent

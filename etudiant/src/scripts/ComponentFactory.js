@@ -5,7 +5,6 @@ export default class ComponentFactory {
     this.componentInstances = [];
     this.componentList = {
       Carousel,
-      Scrolly,
     };
     this.init();
   }
