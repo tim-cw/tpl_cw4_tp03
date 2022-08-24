@@ -1,0 +1,21 @@
+/* ==========================================================================
+   game / component
+   ========================================================================== */
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--spacing-md);
+}
+
+.game__content {
+    grid-column: span 7;
+}
+
+.game__meta {
+    grid-column: -4 / -1;
+
+    h4 + p {
+        margin-top: 0;
+    }
+}

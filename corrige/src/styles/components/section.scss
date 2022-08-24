@@ -1,0 +1,28 @@
+/* ==========================================================================
+   SECTION / COMPONENTS
+   ========================================================================== */
+
+.section {
+    padding: var(--spacing-xl) calc(var(--spacing-md) / 2);
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr;
+    overflow: hidden;
+
+    + .section:not(.section--callout) {
+        padding-top: 0;
+    }
+
+    h2 {
+        margin-bottom: var(--spacing-lg);
+    }
+}
+
+.section--callout {
+    background: var(--color-neutral-dark);
+    color: var(--color-white);
+}
+
+.section .wrapper > *:first-child {
+    margin-top: 0;
+}

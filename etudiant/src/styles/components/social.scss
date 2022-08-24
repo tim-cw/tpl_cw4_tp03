@@ -1,0 +1,56 @@
+/* ==========================================================================
+   social / component
+   ========================================================================== */
+
+.nav-social {
+    display: flex;
+    justify-content: center;
+
+    ul {
+        display: flex;
+        gap: 10px;
+        list-style: none;
+        padding: 0;
+    }
+}
+
+.nav__link {
+    $size: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-white);
+    border-radius: 100%;
+    color: var(--color-black);
+    height: $size;
+    transition: all 0.2s ease-out;
+    width: $size;
+
+    &:hover {
+        transform: scale(1.4);
+        color: var(--color-white);
+    }
+}
+.facebook:hover {
+    background: #1877f2;
+}
+.reddit:hover {
+    background: #ff4500;
+}
+
+.telegram:hover {
+    background: #0088cc;
+}
+
+.twitch:hover {
+    background: #9146ff;
+}
+
+.twitter:hover {
+    background: #1da1f2;
+}
+
+.youtube:hover {
+    background: #ff0000;
+}

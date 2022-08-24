@@ -1,0 +1,19 @@
+/* ==========================================================================
+   gallery / component
+   ========================================================================== */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+
+    .gallery__media {
+        aspect-ratio: 1 / 1;
+        position: relative;
+
+        img {
+            object-fit: cover;
+            @include cover();
+        }
+    }
+}

@@ -1,0 +1,24 @@
+/* ==========================================================================
+   perk / component
+   ========================================================================== */
+
+.perks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl) var(--spacing-md);
+    list-style: none;
+    padding: 0;
+}
+
+.perk {
+    span {
+        color: var(--color-primary);
+        font-size: 20px;
+    }
+
+    p {
+        margin: 0;
+        font-size: 26px;
+        font-weight: normal;
+    }
+}

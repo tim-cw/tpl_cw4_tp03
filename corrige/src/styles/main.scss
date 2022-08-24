@@ -1,0 +1,49 @@
+//FONTS
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:ital,wght@0,700;1,700&family=Ubuntu:wght@700&display=swap');
+
+// TOOLS
+// mixins et fonctions utilisés globalement dans le SCSS (Sass)
+@import 'tools/cover';
+
+// SETTINGS
+// Contient les variables sur les polices, les définitions de couleurs, les définitions de  grandeurs,   etc.
+@import 'settings/colors';
+@import 'settings/easing';
+@import 'settings/fonts';
+@import 'settings/dimensions';
+
+// GENERIC
+// Permet de réinitialiser les CSS et de changer le modèle de boîte en box-sizing: border-box
+@import 'generic/normalize';
+@import 'generic/reset';
+
+// ELEMENTS
+// Modification des styles généraux de la page. Ce sont les styles qui seront généralement hérités par les éléments de la page.
+@import 'elements/body';
+@import 'elements/headings';
+@import 'elements/links';
+@import 'elements/wrapper';
+
+// COMPONENTS
+// Composants d'interface utilisateur spécifiques.
+// C’est là que la majorité de notre travail a lieu.
+@import 'components/button';
+@import 'components/perk';
+@import 'components/card';
+@import 'components/section';
+@import 'components/social';
+@import 'components/header';
+@import 'components/gallery';
+@import 'components/game';
+@import 'components/nav';
+@import 'components/footer';
+@import 'components/scrolly';
+@import 'components/hero';
+@import 'components/icons';
+@import 'components/petition';
+@import 'components/form';
+
+// UTILITIES
+// Utilitaires et classes auxiliaires avec possibilité de remplacer tout ce qui précède, par exemple masquer les éléments de la page
+@import 'utilities/accessibility';
+@import 'utilities/layout';
