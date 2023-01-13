@@ -1,28 +1,13 @@
 <?php
 
+// Ajoute le support pour les images à la une au thème personnalisé
 add_theme_support('post-thumbnails');
-set_post_thumbnail_size(800, 480);
-add_image_size('vignette', 220, 100, true);
-add_theme_support( 'title-tag' );
 
-// menu
+// Menu
 function pw_creer_menu() {
 	register_nav_menu('menu_principal', 'Menu principal');
 }
 add_action('init', 'pw_creer_menu');
-
-// acf options
-if ( function_exists('acf_add_options_page') ) {
-
-    // on ajoute une page d'option
-    acf_add_options_page(array(
-        'page_title'   => 'Options générales',
-        'menu_title'   => 'Options générales',
-        'menu_slug'    => 'pw-theme-options-generales',
-        'capability'   => 'edit_posts',
-        'redirect'     => false
-    ));
-}
 
 // Register Custom Post Type
 function pw_games() {
@@ -67,7 +52,7 @@ function pw_games() {
 		'show_ui'               => true,
 		'show_in_menu'          => true,
 		'menu_position'         => 5,
-		'menu_icon'             => 'dashicons-editor-video',
+		'menu_icon'             => 'dashicons-games',
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
@@ -138,10 +123,16 @@ function pw_realisateur() {
 add_action( 'init', 'pw_realisateur', 0 );
 
 
-// enlever les attributs width / height des balises images insérées
-// avec the_post_thumbnail
-function cw4_img_no_attributes( $html, $post_id, $post_image_id ) {
-    $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
-    return $html;
+
+// PAGE OPTIONS ACF
+if ( function_exists('acf_add_options_page') ) {
+
+    // on ajoute une page d'option
+    acf_add_options_page(array(
+        'page_title'   => 'Options générales',
+        'menu_title'   => 'Options générales',
+        'menu_slug'    => 'pw-theme-options-generales',
+        'capability'   => 'edit_posts',
+        'redirect'     => false
+    ));
 }
-add_filter('post_thumbnail_html', 'cw4_img_no_attributes', 10, 3);

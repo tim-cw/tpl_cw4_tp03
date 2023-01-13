@@ -12,13 +12,14 @@
         </div>
     </div>
 
+    <!-- Cards : Jeux du plus récent au plus ancien (basé sur un champs ACF) -->
     <section class="section">
         <div class="wrapper">
             <div data-scrolly="fromBottom">
                 <?php the_content(); ?>
             </div>
         
-            <!-- Cards -->
+            
             <div class="cards">
                 <?php
                     $args = array(
@@ -29,6 +30,94 @@
                         'posts_per_page' => '2',
                         'meta_key' => 'pw_release_date',
                         'meta_type' => 'DATE',
+                    );
+                    
+                    $query = new WP_Query($args);
+                ?>
+
+                <?php if ($query->have_posts()) : ?>
+                    <?php while ($query->have_posts()) : $query->the_post(); ?>
+                        <a href="<?php the_permalink(); ?>" class="card" 
+                            data-scrolly="fromBottom" 
+                            style="transition-delay: <?php echo $query->current_post * .1; ?>s">
+                            <div class="card__media">
+                                <?php $image = get_field('pw_thumbnail'); ?>
+                                <?php if ($image) : ?>
+                                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                                <?php endif ?>
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__title"><?php the_title(); ?></h3>
+                            </div>
+                        </a>
+                    <?php endwhile; ?>
+                <?php endif; ?>
+                <?php wp_reset_postdata(); ?>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cards : Jeux de la catégorie "action" -->
+    <section class="section">
+        <div class="wrapper">
+            <div data-scrolly="fromBottom">
+                Nos jeux de plates-formes
+            </div>
+        
+            
+            <div class="cards">
+                <?php
+                    $args = array(
+                        'post_type' => 'jeu',
+                        'post_status' => 'publish',
+                        'category_name' => 'plates-formes',
+                        'posts_per_page' => -1,
+                    );
+                    
+                    $query = new WP_Query($args);
+                ?>
+
+                <?php if ($query->have_posts()) : ?>
+                    <?php while ($query->have_posts()) : $query->the_post(); ?>
+                        <a href="<?php the_permalink(); ?>" class="card" 
+                            data-scrolly="fromBottom" 
+                            style="transition-delay: <?php echo $query->current_post * .1; ?>s">
+                            <div class="card__media">
+                                <?php $image = get_field('pw_thumbnail'); ?>
+                                <?php if ($image) : ?>
+                                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                                <?php endif ?>
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__title"><?php the_title(); ?></h3>
+                            </div>
+                        </a>
+                    <?php endwhile; ?>
+                <?php endif; ?>
+                <?php wp_reset_postdata(); ?>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cards : Jeux de la catégorie "action" -->
+    <section class="section">
+        <div class="wrapper">
+            <div data-scrolly="fromBottom">
+                Nos jeux d'action OU de simulation qui ont une note de 4 et moins
+            </div>
+        
+            
+            <div class="cards">
+                <?php
+                    $args = array(
+                        'post_type' => 'jeu',
+                        'post_status' => 'publish',
+                        'posts_per_page' => -1,
+                        'cat' => '5, 7',
+                        'meta_key' => 'pw_rating',
+                        'meta_value' => '4',
+                        'meta_compare' => '<=',
+                        'meta_type' => 'NUMERIC',
                     );
                     
                     $query = new WP_Query($args);
