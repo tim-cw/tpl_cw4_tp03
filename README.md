@@ -1,14 +1,17 @@
-# Composante - Form
+# Travail final Conception Web IV
 
-Introduction de la composantes Form. Form nous permet une validation personnalisée d'un formulaire en utilisant la validation native HTML5.
-<br><br>
+Afin de réaliser ce projet, vous devrez utiliser la maquette du site de Baie Ste-Catherine que vous avez créé dans le cours Design Interactif. Dans le cadre de ce travail de synthèse, vous devrez appliquer les notions principales suivantes : 
 
-## **Consigne de l'exercice**
+- Création des gabarits html / css réactif
+- Utilisation de votre librairie d’outils Timtools créée pendant la session
+    - Carousel
+    - Scrolly
+    - Header
+    - YouTube
+    - Form
+    - Développement d’une nouvelle composante 
+    - Faire les documentations techniques (YouTube et composante au choix)
 
-Lien youtube: https://www.youtube.com/watch?v=704rVZ5-crg
-Lien figma: https://www.figma.com/file/cYzPgAyjjlF9xDNNherNEJ/cw4_h23_pratique-tp-final?node-id=0%3A1&t=0A3i22gS0le0zoPP-1
-
-<br><br>
 
 # Stack de développement frontend TimTools
 
